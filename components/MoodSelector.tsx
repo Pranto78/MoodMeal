@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  Animated,
-  StyleSheet,
-} from 'react-native';
-import { MOODS, Mood } from '../constants/moods';
+    Animated,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+} from "react-native";
+import { MOODS, Mood } from "../constants/moods";
 
 interface MoodSelectorProps {
   selectedMood: Mood | null;
@@ -40,7 +40,7 @@ function MoodButton({
             duration: 1200,
             useNativeDriver: false,
           }),
-        ])
+        ]),
       ).start();
     } else {
       glowAnim.stopAnimation();
@@ -68,7 +68,7 @@ function MoodButton({
 
   const borderColor = glowAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: ['rgba(255,255,255,0.08)', mood.color],
+    outputRange: ["rgba(255,255,255,0.08)", mood.color],
   });
 
   const shadowOpacity = glowAnim.interpolate({
@@ -95,20 +95,22 @@ function MoodButton({
           style={[
             styles.moodButton,
             {
-              borderColor: isSelected ? mood.color : 'rgba(255,255,255,0.08)',
+              borderColor: isSelected ? mood.color : "rgba(255,255,255,0.08)",
               backgroundColor: isSelected
                 ? `${mood.color}18`
-                : 'rgba(255,255,255,0.05)',
+                : "rgba(255,255,255,0.05)",
               shadowColor: mood.color,
               shadowOpacity: isSelected ? 0.4 : 0,
             },
           ]}
         >
-          <Text style={styles.emoji}>{mood.emoji}</Text>
+          <View style={styles.emojiWrapper}>
+  <Text style={styles.emoji}>{mood.emoji}</Text>
+</View>
           <Text
             style={[
               styles.label,
-              { color: isSelected ? mood.color : '#94a3b8' },
+              { color: isSelected ? mood.color : "#94a3b8" },
             ]}
           >
             {mood.label}
@@ -144,17 +146,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 4,
   },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
     gap: 10,
   },
   moodButtonWrapper: {
-    width: '22%',
+    width: "22%",
     minWidth: 72,
   },
   moodButton: {
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 14,
     paddingHorizontal: 4,
     borderRadius: 18,
@@ -163,13 +165,18 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 4,
   },
-  emoji: {
-    fontSize: 32,
-    marginBottom: 6,
-  },
+ emojiWrapper: {
+  backgroundColor: 'transparent',
+  marginBottom: 8,
+  alignItems: 'center',
+},
+emoji: {
+  fontSize: 32,
+  backgroundColor: 'transparent',
+},
   label: {
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: "600",
     letterSpacing: 0.3,
   },
 });

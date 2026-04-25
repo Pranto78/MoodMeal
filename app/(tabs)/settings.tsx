@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
   },
   header: {
     paddingTop: Platform.OS === 'ios' ? 12 : 20,
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   sectionContent: {
-    padding: 16,
+    padding: 20,
   },
   dangerButton: {
     flexDirection: 'row',

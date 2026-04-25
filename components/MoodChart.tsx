@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { BarChart, PieChart } from 'react-native-gifted-charts';
-import { MOODS } from '../constants/moods';
-import GlassCard from './GlassCard';
+import React, { useMemo } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { BarChart, PieChart } from "react-native-gifted-charts";
+import { MOODS } from "../constants/moods";
+import GlassCard from "./GlassCard";
 
 interface MoodChartProps {
   weeklyStats: Record<string, number>;
@@ -16,24 +16,22 @@ export default function MoodChart({ weeklyStats, dailyMoods }: MoodChartProps) {
       label: d.day,
       frontColor:
         d.count > 3
-          ? '#ec4899'
+          ? "#ec4899"
           : d.count > 2
-          ? '#a855f7'
-          : d.count > 1
-          ? '#3b82f6'
-          : '#00f5ff',
+            ? "#a855f7"
+            : d.count > 1
+              ? "#3b82f6"
+              : "#00f5ff",
       gradientColor:
         d.count > 3
-          ? '#ec489966'
+          ? "#ec489966"
           : d.count > 2
-          ? '#a855f766'
-          : d.count > 1
-          ? '#3b82f666'
-          : '#00f5ff66',
+            ? "#a855f766"
+            : d.count > 1
+              ? "#3b82f666"
+              : "#00f5ff66",
       topLabelComponent: () =>
-        d.count > 0 ? (
-          <Text style={styles.barLabel}>{d.count}</Text>
-        ) : null,
+        d.count > 0 ? <Text style={styles.barLabel}>{d.count}</Text> : null,
     }));
   }, [dailyMoods]);
 
@@ -43,16 +41,16 @@ export default function MoodChart({ weeklyStats, dailyMoods }: MoodChartProps) {
       .slice(0, 6);
 
     if (entries.length === 0) {
-      return [{ value: 1, color: '#1a1a3e', text: '-' }];
+      return [{ value: 1, color: "#1a1a3e", text: "-" }];
     }
 
     return entries.map(([moodId, count]) => {
       const mood = MOODS.find((m) => m.id === moodId);
       return {
         value: count,
-        color: mood?.color || '#3b82f6',
-        text: mood?.emoji || '❓',
-        focused: count === Math.max(...entries.map(e => e[1])),
+        color: mood?.color || "#3b82f6",
+        text: mood?.emoji || "❓",
+        focused: count === Math.max(...entries.map((e) => e[1])),
       };
     });
   }, [weeklyStats]);
@@ -84,7 +82,7 @@ export default function MoodChart({ weeklyStats, dailyMoods }: MoodChartProps) {
               spacing={18}
               isAnimated
               animationDuration={800}
-              maxValue={Math.max(...dailyMoods.map(d => d.count), 4)}
+              maxValue={Math.max(...dailyMoods.map((d) => d.count), 4)}
               height={140}
               width={260}
             />
@@ -107,7 +105,7 @@ export default function MoodChart({ weeklyStats, dailyMoods }: MoodChartProps) {
               donut
               radius={75}
               innerRadius={45}
-              innerCircleColor="#12122a"
+              innerCircleColor="transparent"
               centerLabelComponent={() => (
                 <View style={styles.pieCenter}>
                   <Text style={styles.pieCenterValue}>{totalEntries}</Text>
@@ -164,38 +162,38 @@ const styles = StyleSheet.create({
   },
   chartTitle: {
     fontSize: 18,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontWeight: "700",
+    color: "#ffffff",
     letterSpacing: 0.3,
   },
   chartSubtitle: {
     fontSize: 12,
-    color: '#64748b',
+    color: "#64748b",
     marginTop: 4,
   },
   barChartContainer: {
-    alignItems: 'center',
-    overflow: 'hidden',
+    alignItems: "center",
+    overflow: "hidden",
   },
   pieChartContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     gap: 16,
   },
   pieCenter: {
-    alignItems: 'center',
+    alignItems: "center",
   },
   pieCenterValue: {
     fontSize: 22,
-    fontWeight: '800',
-    color: '#ffffff',
+    fontWeight: "800",
+    color: "#ffffff",
   },
   pieCenterLabel: {
     fontSize: 10,
-    color: '#64748b',
-    fontWeight: '600',
-    textTransform: 'uppercase',
+    color: "#64748b",
+    fontWeight: "600",
+    textTransform: "uppercase",
     letterSpacing: 1,
   },
   pieLegend: {
@@ -203,8 +201,8 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   legendItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   legendDot: {
@@ -217,22 +215,22 @@ const styles = StyleSheet.create({
   },
   legendText: {
     fontSize: 12,
-    color: '#94a3b8',
+    color: "#94a3b8",
     flex: 1,
   },
   legendCount: {
     fontSize: 12,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontWeight: "700",
+    color: "#ffffff",
   },
   axisText: {
-    color: '#64748b',
+    color: "#64748b",
     fontSize: 10,
   },
   barLabel: {
     fontSize: 10,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontWeight: "700",
+    color: "#ffffff",
     marginBottom: 4,
   },
 });

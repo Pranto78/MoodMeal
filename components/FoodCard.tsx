@@ -1,18 +1,18 @@
-import React from 'react';
+import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+import React from "react";
 import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
   Animated,
-  StyleSheet,
   Dimensions,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
-import { Food } from '../constants/foods';
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Food } from "../constants/foods";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 interface FoodCardProps {
   food: Food;
@@ -23,7 +23,7 @@ interface FoodCardProps {
 
 export default function FoodCard({
   food,
-  accentColor = '#00f5ff',
+  accentColor = "#00f5ff",
   onOrder,
   compact = false,
 }: FoodCardProps) {
@@ -59,7 +59,7 @@ export default function FoodCard({
       >
         <Image source={{ uri: food.imageUrl }} style={styles.compactImage} />
         <LinearGradient
-          colors={['transparent', 'rgba(0,0,0,0.85)']}
+          colors={["transparent", "rgba(0,0,0,0.85)"]}
           style={styles.compactGradient}
         />
         <View style={styles.compactInfo}>
@@ -86,7 +86,7 @@ export default function FoodCard({
       <View style={styles.imageContainer}>
         <Image source={{ uri: food.imageUrl }} style={styles.image} />
         <LinearGradient
-          colors={['transparent', 'rgba(10,10,26,0.95)']}
+          colors={["transparent", "rgba(10,10,26,0.95)"]}
           style={styles.imageGradient}
         />
         <View style={styles.categoryBadge}>
@@ -129,10 +129,10 @@ export default function FoodCard({
 const styles = StyleSheet.create({
   card: {
     borderRadius: 22,
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    backgroundColor: "rgba(255,255,255,0.06)",
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-    overflow: 'hidden',
+    borderColor: "rgba(255,255,255,0.08)",
+    overflow: "hidden",
     marginBottom: 16,
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.2,
@@ -141,126 +141,126 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     height: 200,
-    position: 'relative',
+    position: "relative",
   },
   image: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
   imageGradient: {
     ...StyleSheet.absoluteFillObject,
-    top: '40%',
+    top: "40%",
   },
   categoryBadge: {
-    position: 'absolute',
+    position: "absolute",
     top: 14,
     left: 14,
     paddingHorizontal: 12,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: "rgba(255,255,255,0.12)",
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.15)',
+    borderColor: "rgba(255,255,255,0.25)",
   },
   categoryText: {
     fontSize: 11,
-    fontWeight: '700',
+    fontWeight: "700",
     letterSpacing: 0.8,
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
   caloriesBadge: {
-    position: 'absolute',
+    position: "absolute",
     top: 14,
     right: 14,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 4,
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 20,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: "rgba(255,255,255,0.12)",
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.15)',
+    borderColor: "rgba(255,255,255,0.25)",
   },
   caloriesText: {
     fontSize: 11,
-    fontWeight: '600',
-    color: '#f97316',
+    fontWeight: "600",
+    color: "#f97316",
   },
   info: {
     padding: 18,
   },
   name: {
     fontSize: 20,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontWeight: "700",
+    color: "#ffffff",
     marginBottom: 6,
     letterSpacing: 0.3,
   },
   description: {
     fontSize: 13,
-    color: '#94a3b8',
+    color: "#94a3b8",
     lineHeight: 19,
     marginBottom: 16,
   },
   orderButton: {
     borderRadius: 14,
-    overflow: 'hidden',
+    overflow: "hidden",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.35,
     shadowRadius: 12,
     elevation: 6,
   },
   orderGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 14,
     gap: 8,
   },
   orderText: {
     fontSize: 15,
-    fontWeight: '800',
-    color: '#0a0a1a',
+    fontWeight: "800",
+    color: "#0a0a1a",
     letterSpacing: 0.5,
   },
   // Compact styles for grid view
   compactCard: {
     borderRadius: 16,
-    overflow: 'hidden',
-    backgroundColor: 'rgba(255,255,255,0.06)',
+    overflow: "hidden",
+    backgroundColor: "rgba(255,255,255,0.06)",
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
+    borderColor: "rgba(255,255,255,0.08)",
     height: 180,
     flex: 1,
   },
   compactImage: {
-    width: '100%',
-    height: '100%',
-    resizeMode: 'cover',
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
   compactGradient: {
     ...StyleSheet.absoluteFillObject,
-    top: '35%',
+    top: "35%",
   },
   compactInfo: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 10,
     left: 10,
     right: 10,
   },
   compactName: {
     fontSize: 13,
-    fontWeight: '700',
-    color: '#ffffff',
+    fontWeight: "700",
+    color: "#ffffff",
     marginBottom: 2,
   },
   compactCategory: {
     fontSize: 10,
-    fontWeight: '600',
-    color: '#94a3b8',
-    textTransform: 'uppercase',
+    fontWeight: "600",
+    color: "#94a3b8",
+    textTransform: "uppercase",
     letterSpacing: 0.5,
   },
 });
